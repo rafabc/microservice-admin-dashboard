@@ -1,0 +1,26 @@
+info:
+  #scm-url: @scm.url@
+  stage: test
+
+logging:
+  file: target/boot-admin-sample.log
+
+spring:
+  application:
+    name: admin-dashboard
+  boot:
+    admin:
+      url: http://localhost:8080
+
+endpoints:
+  health:
+    sensitive: false
+    
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:1111/eureka/}
+    healthcheck:
+      enabled: true
+    lease:
+      duration: 5 
